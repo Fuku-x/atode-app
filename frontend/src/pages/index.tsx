@@ -95,16 +95,9 @@ const Home: NextPage = () => {
           <Link href="/login" passHref legacyBehavior>
             <SecondaryButton as="a" data-cy="login-button">ログイン</SecondaryButton>
           </Link>
-          <PrimaryButton 
-            as="button" 
-            onClick={(e) => {
-              e.preventDefault();
-              alert('新規登録機能は現在準備中です');
-            }}
-            style={{ cursor: 'not-allowed', opacity: 0.7 }}
-          >
-            新規登録
-          </PrimaryButton>
+          <Link href="/signup" passHref legacyBehavior>
+            <PrimaryButton as="a" data-cy="signup-button">新規登録</PrimaryButton>
+          </Link>
         </ButtonContainer>
       </WelcomeCard>
     </Layout>
