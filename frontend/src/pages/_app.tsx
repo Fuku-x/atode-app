@@ -1,7 +1,15 @@
 import type { AppProps } from 'next/app';
 import { SessionProvider } from 'next-auth/react';
+import { Session } from 'next-auth';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { theme } from '../styles/theme';
+
+type AppPropsWithSession = AppProps & {
+  pageProps: {
+    session?: Session;
+    [key: string]: any;
+  };
+};
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -33,9 +41,9 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }: AppPropsWithSession) {
   return (
-    <SessionProvider session={session}>
+    <SessionProvider session={pageProps.session}>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Component {...pageProps} />

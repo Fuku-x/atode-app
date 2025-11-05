@@ -10,9 +10,12 @@ const handler = NextAuth({
   ],
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
-    async session({ session, token }) {
+    async session({ session, token }): Promise<any> {
       if (session?.user) {
-        session.user.id = token.sub; // Add user ID to the session
+        session.user = {
+          ...session.user,
+          id: token.sub || ''
+        };
       }
       return session;
     },
