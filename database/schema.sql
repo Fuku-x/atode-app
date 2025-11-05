@@ -1,0 +1,17 @@
+-- Create the database
+CREATE DATABASE IF NOT EXISTS atode CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- Use the database
+USE atode;
+
+-- Create tasks table
+CREATE TABLE IF NOT EXISTS tasks (
+  id CHAR(36) NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  description TEXT,
+  completed TINYINT(1) NOT NULL DEFAULT 0,
+  due_date DATETIME NULL DEFAULT NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
