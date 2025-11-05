@@ -93,11 +93,18 @@ const Home: NextPage = () => {
         <Subtitle>TODOより自由に。あとでやる、もちゃんと管理。</Subtitle>
         <ButtonContainer>
           <Link href="/login" passHref legacyBehavior>
-            <SecondaryButton as="a">ログイン</SecondaryButton>
+            <SecondaryButton as="a" data-cy="login-button">ログイン</SecondaryButton>
           </Link>
-          <Link href="/signup" passHref legacyBehavior>
-            <PrimaryButton as="a">新規登録</PrimaryButton>
-          </Link>
+          <PrimaryButton 
+            as="button" 
+            onClick={(e) => {
+              e.preventDefault();
+              alert('新規登録機能は現在準備中です');
+            }}
+            style={{ cursor: 'not-allowed', opacity: 0.7 }}
+          >
+            新規登録
+          </PrimaryButton>
         </ButtonContainer>
       </WelcomeCard>
     </Layout>
