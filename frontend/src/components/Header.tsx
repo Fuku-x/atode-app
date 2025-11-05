@@ -54,7 +54,7 @@ const Header = () => {
   return (
     <HeaderContainer>
       <Nav>
-        <Link href="/" passHref legacyBehavior>
+        <Link href="/" passHref>
           <Logo>Atode</Logo>
         </Link>
       </Nav>
