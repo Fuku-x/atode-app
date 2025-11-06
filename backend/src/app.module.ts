@@ -2,6 +2,8 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TasksModule } from './tasks/tasks.module';
+import { AuthModule } from './auth/auth.module';
+import { FirebaseModule } from './firebase/firebase.module';
 
 @Module({
   imports: [
@@ -10,6 +12,9 @@ import { TasksModule } from './tasks/tasks.module';
       isGlobal: true,
       envFilePath: `.env.${process.env.NODE_ENV || 'development'}`,
     }),
+    
+    // Firebase
+    FirebaseModule,
     
     // データベース接続設定
     TypeOrmModule.forRootAsync({
@@ -30,6 +35,7 @@ import { TasksModule } from './tasks/tasks.module';
 
     // アプリケーションモジュール
     TasksModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],
