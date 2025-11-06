@@ -54,7 +54,9 @@ const Header = () => {
   return (
     <HeaderContainer>
       <Nav>
-        <Link href="/" passHref>
+        {/* Use legacyBehavior so Link does not render an extra <a> around the child anchor
+            This avoids nested <a> tags which cause React hydration mismatches. */}
+        <Link href="/" passHref legacyBehavior>
           <Logo>Atode</Logo>
         </Link>
       </Nav>

@@ -51,9 +51,11 @@ const Subtitle = styled.div`
 
 const ButtonContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+  flex-direction: row;
+  gap: 1rem;
   margin-top: 1.5rem;
+  justify-content: center;
+  align-items: center;
 `;
 
 const PrimaryButton = styled.a`
@@ -69,7 +71,7 @@ const PrimaryButton = styled.a`
   text-decoration: none;
   transition: transform 0.2s, box-shadow 0.2s;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  width: 100%;
+  min-width: 140px;
   text-align: center;
   
   &:hover {
@@ -89,7 +91,7 @@ const SecondaryButton = styled.a`
   font-size: 1.1rem;
   text-decoration: none;
   transition: all 0.2s;
-  width: 100%;
+  min-width: 120px;
   text-align: center;
   
   &:hover {

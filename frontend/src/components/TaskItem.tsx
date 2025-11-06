@@ -31,7 +31,7 @@ export default function TaskItem({ task, onToggleComplete, onDelete }: TaskItemP
               <p className="text-gray-600 mt-1">{task.description}</p>
             )}
             <div className="mt-2">
-              <span className={`text-sm ${new Date(task.dueDate) < new Date() && !task.completed ? 'text-red-500' : 'text-gray-500'}`}>
+              <span className={`text-sm ${task.dueDate && new Date(task.dueDate) < new Date() && !task.completed ? 'text-red-500' : 'text-gray-500'}`}>
                 {formattedDueDate}
               </span>
             </div>
